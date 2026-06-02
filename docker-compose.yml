@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: aether_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: inventatory_user
+      POSTGRES_PASSWORD: G475cpEaYb3vbERN1fTqanx234Kj3trB
+      POSTGRES_DB: inventatory
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - aether_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aether_backend
+    restart: always
+    environment:
+      # Binds internally to container database service 'postgres'
+      - DATABASE_URL=postgresql://inventatory_user:G475cpEaYb3vbERN1fTqanx234Kj3trB@postgres:5432/inventatory
+      - SECRET_KEY=super-secret-production-key-change-it
+      - FLASK_ENV=production
+      - ALLOWED_ORIGINS=http://localhost,http://localhost:3000,http://localhost:80,http://127.0.0.1,http://127.0.0.1:3000,http://127.0.0.1:80
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - aether_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Sets external API url for the browser client to target local backend service port
+        - VITE_API_URL=http://localhost:5000
+    container_name: aether_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - aether_network
+
+volumes:
+  postgres_data:
+
+networks:
+  aether_network:
+    name: aether_network
+    driver: bridge

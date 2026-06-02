@@ -1,0 +1,9 @@
+# Ignore local node packages and compile folders
+node_modules/
+dist/
+build/
+.env
+.git/
+.gitignore
+Dockerfile
+docker-compose*

@@ -1,0 +1,69 @@
+/* Global CSS overrides */
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0B0F19;
+  color: #F3F4F6;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Premium Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38BDF8;
+}
+
+/* Custom Glassmorphic utility classes */
+.glass-card {
+  background: rgba(21, 27, 38, 0.7) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.glass-table {
+  background: rgba(21, 27, 38, 0.5) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+/* Interactive elements animations */
+.pulse-glow {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.pulse-glow:hover {
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+  transform: scale(1.02);
+}
+
+/* Styled Table Rows with clean neon border-bottom */
+.MuiDataGrid-row:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}

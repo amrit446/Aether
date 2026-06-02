@@ -1,0 +1,12 @@
+# Ignore local environment configs and python caches
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.git/
+.gitignore
+tests/
+Dockerfile
+docker-compose*
