@@ -368,4 +368,4 @@ Amrit Bharti
 Full Stack Developer
 
 Tech Stack:
-Python • Flask • React • PostgreSQL • Docker • AWS
+Python • Flask • React • PostgreSQL • Docker 
