@@ -17,11 +17,11 @@ def create_new_order():
         validated_data = order_schema.load(data)
         
         customer_id = validated_data['customer_id']
-        items = validated_data['items']
+        order_items = validated_data['order_items']
         status = validated_data.get('status', 'completed')
         
         # Invoke transactional order service
-        order = create_order(customer_id, items, status)
+        order = create_order(customer_id, order_items, status)
         return jsonify(order_schema.dump(order)), 201
     except ValidationError as err:
         return jsonify({"errors": err.messages}), 400

@@ -319,9 +319,6 @@ export default function Orders() {
                       <IconButton onClick={() => handleOpenDetails(o)} sx={{ color: '#38BDF8', mr: 1, '&:hover': { bgcolor: 'rgba(56, 189, 248, 0.1)' } }}>
                         <ViewIcon fontSize="small" />
                       </IconButton>
-                      <IconButton onClick={() => handleOpenDelete(o)} sx={{ color: '#EF4444', '&:hover': { bgcolor: 'rgba(239, 68, 68, 0.1)' } }}>
-                        <DeleteIcon fontSize="small" />
-                      </IconButton>
                     </TableCell>
                   </TableRow>
                 ))
